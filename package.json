@@ -6,12 +6,16 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"npm i"
+    "heroku-postbuild":"npm i"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.6"
+  },
+  "engines": {
+    "node": "11.13.0",
+    "npm": ">=1.3.0 <6.0.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
