@@ -2,10 +2,11 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'remotemysql.com',
     port: '3306',
-    user: 'root',
-    database: 'dbsprintretrospective'
+    user: 'Jimp270qal',
+    password: '7Ug1ze1v5P',
+    database: 'Jimp270qal'
 });
 
 module.exports = db;
