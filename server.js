@@ -18,6 +18,6 @@ app.use(function(req, res) {
 })
 
 app.listen(port, () => {
-    console.log('RESTful API server started on: ' + port);
+    console.log('RESTful API server started on: ' + process.env.port || 3000);
 });
  
