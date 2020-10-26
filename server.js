@@ -20,7 +20,4 @@ app.use(function(req, res) {
 app.listen(port, '0.0.0.0', () => {
     console.log('RESTful API server started on: ' + port);
 });
-
-//chỉnh lại cách query db
-//chỉnh localhost -> 0.0.0.0
  
