@@ -5,7 +5,7 @@ const app = express(cors({
 }));
 const bodyParser = require('body-parser');
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -20,4 +20,5 @@ app.use(function(req, res) {
 app.listen(port, () => {
     console.log('RESTful API server started on: ' + port);
 });
+ 
  
