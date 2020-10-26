@@ -9,8 +9,7 @@ module.exports = {
         let sql = 'Select * from board';
          db.query(sql, (err, response) => {
             if (err) throw err;
-            let boardList = [];
-            res.json(response);
+            return res.send(response);
         })
     },
 }
