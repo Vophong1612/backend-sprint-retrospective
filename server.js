@@ -1,20 +1,22 @@
 const express = require('express');
 const cors=require("cors")
-const app = express(cors({
-    origin:"http://*.herokuapp.com"
-}));
+const app = express();
 const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.all('/', function(req, res, next) {
+app.use(function(req, res, next) {
+    // Mọi domain
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next()
-});
-
+   
+    // Domain nhất định
+    // res.header("Access-Control-Allow-Origin", "https://freetuts.net");
+   
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 let routes = require('./api/routes') //importing route
 routes(app)
 
