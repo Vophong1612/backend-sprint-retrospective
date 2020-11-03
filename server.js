@@ -1,31 +1,30 @@
 const express = require('express');
-const cors=require("cors")
+const cors = require("cors");
 const app = express();
-const bodyParser = require('body-parser');
+const session = require("express-session");
+const mdw = require("./middlewares/route.mdw");
+const local = require("./middlewares/local.mdw");
+const logger = require("morgan");
+const cookieParser = require("cookie-parser");
 
-const port = process.env.PORT || 3000;
+app.use(logger("dev"));
+app.use(cors({origin:"http://localhost:3000",credentials:true}));
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }))
+app.use(session({
+    secret: "0",
+}));
+mdw(app); local(app);
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(function(req, res, next) {
-    // Mọi domain
-    res.header("Access-Control-Allow-Origin", "*");
-   
-    // Domain nhất định
-    // res.header("Access-Control-Allow-Origin", "https://freetuts.net");
-   
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-let routes = require('./api/routes') //importing route
-routes(app)
+const port = process.env.PORT || 5000;
 
-app.use(function(req, res) {
-    res.status(404).send({url: req.originalUrl + ' not found'})
+app.use(function (req, res) {
+    res.status(404).send({ url: req.originalUrl + ' not found' })
 })
 
 app.listen(port, () => {
-    console.log('RESTful API server started on: ' + port);
+    console.log('Web server running at http://localhost:' + port);
 });
- 
- 
+
+module.exports = app;

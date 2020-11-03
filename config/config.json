@@ -1,0 +1,10 @@
+{
+    "mysql": {
+      "connectionLimit": 10,
+      "user": "Jimp270qal",
+      "database": "Jimp270qal",
+      "password": "7Ug1ze1v5P",
+      "host": "remotemysql.com",
+      "port": 3306
+    }
+  }
