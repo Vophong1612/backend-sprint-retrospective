@@ -8,7 +8,8 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 
 app.use(logger("dev"));
-app.use(cors({origin:"https://sprint-retrospective-web.herokuapp.com/",credentials:true}));
+// app.use(cors({origin:"https://sprint-retrospective-web.herokuapp.com/",credentials:true}));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }))
@@ -17,16 +18,16 @@ app.use(session({
 }));
 mdw(app); local(app);
 
-app.use(function (req, res, next) {
-    // Mọi domain
-    res.header("Access-Control-Allow-Origin", "*");
+// app.use(function (req, res, next) {
+//     // Mọi domain
+//     res.header("Access-Control-Allow-Origin", "*");
 
-    // Domain nhất định
-    // res.header("Access-Control-Allow-Origin", "https://freetuts.net");
+//     // Domain nhất định
+//     // res.header("Access-Control-Allow-Origin", "https://freetuts.net");
 
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 const port = process.env.PORT || 5000;
 
