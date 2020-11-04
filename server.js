@@ -22,8 +22,8 @@ const cookieParser = require("cookie-parser");
 // });
 
 app.use(logger("dev"));
-// app.use(cors({origin:"https://sprint-retrospective-web.herokuapp.com",credentials:true}));
-app.use(cors());
+app.use(cors({origin:"https://sprint-retrospective-web.herokuapp.com",credentials:true}));
+// app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }))
