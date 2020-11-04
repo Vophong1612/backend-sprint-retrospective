@@ -8,7 +8,7 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 
 app.use(logger("dev"));
-app.use(cors());
+app.use(cors({origin:"http://sprint-retrospective-web.herokuapp.com/",credentials:true}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }))
