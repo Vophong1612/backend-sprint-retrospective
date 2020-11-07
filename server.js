@@ -7,13 +7,6 @@ const local = require("./middlewares/local.mdw");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 
-const proxy = require("http-proxy-middleware");
-
-  app.use(proxy("/**", { // https://github.com/chimurai/http-proxy-middleware
-    target: "https://backend-sprint-retrospective.herokuapp.com",
-    secure: false
-  }));
-
 app.use(function (req, res, next) {
     // Mọi domain
 //     res.header("Access-Control-Allow-Origin", "*");
