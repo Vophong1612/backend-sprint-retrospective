@@ -8,5 +8,6 @@ module.exports = {
 
         return rows[0];
     },
-    add: (entity) => db.insert("user", entity)
+    add: (entity) => db.insert("user", entity),
+    updatePassword: (pass,username) => db.load(`update user set password = '${pass}' where username = '${username}'`),
 }
